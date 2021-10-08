@@ -1,3 +1,18 @@
 Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
 
+From the Security HUB, I found 3 EC2 security group failing "Ensure no security groups allow ingress from 0.0.0.0/0 to port 22"
+
+AttackInstanceSG: the Attack Instance created a vulnerability. We can ignore this, because the best remedy would be not to have the Attack Instance for security testing on the same infrastructure.
+Second best solution would be to limit to my own IP address, or use the Service Manager to log in and put the instance in a private subnet. Lesson learned is that security testing can open new vulnerabilities.
+
+launch-wizard-1: no active EC2 instance is currently using this security group, it's the default name of the EC2 security group when it's automatically created. It's unrelated to this project.
+
+WebAppSG: The Web App should not be accessible at all on this port, as mentioned in E1T4.txt. Not from the Internet for sure.
+
+Amazon Inspector showed the same vulnerabilities, but with multiple ports (telnet, FTP as well). Even if these services are not running, the access from Internet should be removed together with SSH.
+
+GuardDuty does not show any findings after 45 minutes.
+
 Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+Move WebAppSG and AttackInstanceSG to private subnets, or limit WebAppSG ingress to Trusted Public Subnet, AttackInstanceSG to my own IP address.

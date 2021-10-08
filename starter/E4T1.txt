@@ -2,4 +2,10 @@
 
 # Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
 
+- Disable SSH Password Authentication
+- Limit the SSH port to my own IP address
+- Disable SSH service (using immutable instances), or access to the SSH port from anywhere
+
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+
+By using the principle of least privilege access, limit the S3 resources that the IAM policy allows to the free recipe bucket, and also, should be limited to read-only (GetObject)

@@ -1,0 +1,10 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+
+The Web Service Instance shouldn't be in a public subnet, should be moved to the Private Subnet. Reason is that only the Application Load Balancer is accessing it (the WebApps started by the ABL to be precise), which is inside the cloud already.
+It's also possible to limit the ingress traffic to the Trusted Public Subnet.
+
+# Poor practice 2
+
+It shouldn't be possible to access the Web Service Instance through SSH. This instance could be immutable, meaning that after provisioned, there would be no change to it.

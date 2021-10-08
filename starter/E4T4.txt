@@ -3,6 +3,12 @@
 
 # Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
 
+No, with IAM permissions, it's still possible to access the S3 bucket.
+
 # Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
 
+No, only newly uploaded files will be encrypted.
+
 # What would happen if the original cloud formation templates are applied to this environment.
+
+The changes were made manually, so the cloud formation templates will have to be updated as well. If the original templates were applied, the same security issues would come up again.

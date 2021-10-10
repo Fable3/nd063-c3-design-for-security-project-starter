@@ -1,6 +1,8 @@
 
 # What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
 
+Adding a Web Application Firewall (WAP). Then limit ingress traffic to the WAP only.
+
 # Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
 
 No, with IAM permissions, it's still possible to access the S3 bucket.

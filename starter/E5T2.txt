@@ -2,12 +2,25 @@
 
 ## Scan infrastructure as code templates
 
+I've used Regula which was already set up for the previous excercises with Terraform. It also handles CloudFormation.
+
 ### Example vulnerability
+using it on the original c3-app.yml:
+FG_R00085: VPC security group rules should not permit ingress from '0.0.0.0/0' to TCP/UDP port 22 (SSH) [High]
 
 ##Scan AMI’s or containers for OS vulnerabilities
 
+One possible tool to scan for OS vulnerabilities would be 'puppet'. This is a bit harder to set up than Regula.
+
 ### Example vulnerability
+
+The previous issue with allowing password-based login for SSH would be one example of OS vulnerability.
 
 ##Scan an AWS environment for cloud configuration vulnerabilities
 
+The AWS Config did a good job for showing non-compliant rules.
+
 ### Example vulnerability
+
+For example it shows S3 buckets that fail the check for S3 encryption: "securityhub-s3-bucket-server-side-encryption-enabled-bad5d44b"
+Here, in the "Resources in scope" the 2 buckets were listed before adding default ecryption.
